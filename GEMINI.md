@@ -14,10 +14,33 @@ This project aims to create a simple frontend to display information about miRNA
 ## 2. Data Source
 
 *   **Excel File:** `Tabelas_resumo_para_Hugo.xlsx`
-*   **Sheets:**
-    *   `miRNA_expression_studies`: Lists miRNAs (ID hairpin and ID maduro) with "upregulated or downregulated" information per study.
-    *   `miRNA_other_studies`: Lists miRNAs (ID hairpin and ID maduro) found in CNVs or SNVs, and the corresponding study.
-    *   `miRNA_study_details`: Lists study details with DOI links.
+*   **Sheets (after processing):**
+    *   **`miRNA_expression_studies`:**
+        *   `miRNA ID`
+        *   `miRNA mature ID`
+        *   `Alteration`
+        *   `Tissue`
+        *   `Reported`
+        *   `# studies upregulation`
+        *   `# studies downregulation`
+        *   `Total studies`
+        *   `StudyDetails` (nested object)
+    *   **`miRNA_other_studies`:**
+        *   `miRNA ID`
+        *   `miRNA mature ID`
+        *   `Alteration`
+        *   `Study description`
+        *   `StudyDetails` (nested object)
+    *   **`miRNA_study_details`:**
+        *   `Study`
+        *   `Title`
+        *   `DOI`
+        *   `Study Type`
+        *   `Tissue type`
+        *   `Tissue - subtype`
+        *   `# ASD Samples`
+        *   `# Control Samples`
+        *   `Others`
 
 ## 3. Data Processing
 
@@ -35,7 +58,7 @@ A Python script (`process_data.py`) will be created to perform the following act
 *   A new `index.html` file will be created.
 *   The page will use the DataTables.js library for creating interactive tables.
 *   Two tables will be displayed: one for expression studies and one for other studies.
-*   The tables will have search and filter functionality for all columns, with a focus on: `miRNA hairpin`, `miRNA mature`, `Alteration`, `Study`, and `Reported`.
+*   The tables will have search and filter functionality for all columns, with a focus on: `miRNA hairpin`, `miRNA mature`, `Alteration`, and `Reported`.
 *   The main tables will link to the study details, which will be displayed on the same page.
 
 ## 5. Plan
